@@ -33,12 +33,12 @@ if (!isset($_SESSION["role"])) {
                     <li <?=activeMenu($_PAGE, "home");?>><a href="?page=home">Home <span class="sr-only">(current)</span></a></li>
                     <?php if ($_SESSION["role"] == "Pegawai"): ?>
                         <li <?=activeMenu($_PAGE, "pegawai");?>><a href="?page=pegawai">Pegawai</a></li>
-                        <li <?=activeMenu($_PAGE, "pengguna");?>><a href="?page=pengguna">Pengguna</a></li>
                     <?php endif; ?>
 
-                    <?php if ($_SESSION["role"] == "Manajer"): ?>
+                    <?php if ($_SESSION["role"] == "Atasan"): ?>
                         <li <?=activeMenu($_PAGE, "kriteria");?>><a href="?page=kriteria">Kriteria</a></li>
                         <li <?=activeMenu($_PAGE, "penilaian");?>><a href="?page=penilaian">Penilaian</a></li>
+                        <li <?=activeMenu($_PAGE, "pengguna");?>><a href="?page=pengguna">Pengguna</a></li>
                     <?php endif; ?>
 
                     <?php if ($_SESSION["role"] == "Atasan" OR $_SESSION["role"] == "Manajer"): ?>
