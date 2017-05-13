@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 13, 2017 at 01:38 PM
+-- Generation Time: May 13, 2017 at 02:37 PM
 -- Server version: 10.1.23-MariaDB
 -- PHP Version: 7.1.4
 
@@ -33,8 +33,7 @@ USE `pegawai`;
 CREATE TABLE `kriteria` (
   `id_kriteria` int(11) NOT NULL,
   `nama` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `bobot` int(5) NOT NULL,
-  `periode` varchar(4) COLLATE utf8mb4_unicode_ci NOT NULL
+  `bobot` decimal(3,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -47,7 +46,7 @@ CREATE TABLE `nilai` (
   `id_nilai` int(11) NOT NULL,
   `id_kriteria` int(11) NOT NULL,
   `nik` char(4) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nilai` int(5) NOT NULL,
+  `nilai` decimal(3,2) NOT NULL,
   `periode` char(4) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -77,6 +76,7 @@ CREATE TABLE `pegawai` (
 
 CREATE TABLE `user` (
   `id_user` int(3) NOT NULL,
+  `role` enum('Atasan','Manajer','Pegawai') COLLATE utf8mb4_unicode_ci NOT NULL,
   `username` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -85,9 +85,10 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id_user`, `username`, `password`) VALUES
-(1, 'pegawai', '047aeeb234644b9e2d4138ed3bc7976a'),
-(2, 'atasan', '221ef2597affd3f083ac94af9e1b1e7f');
+INSERT INTO `user` (`id_user`, `role`, `username`, `password`) VALUES
+(1, 'Pegawai', 'pegawai', '047aeeb234644b9e2d4138ed3bc7976a'),
+(2, 'Atasan', 'atasan', '221ef2597affd3f083ac94af9e1b1e7f'),
+(3, 'Manajer', 'manajer', '69b731ea8f289cf16a192ce78a37b4f0');
 
 -- --------------------------------------------------------
 
@@ -99,7 +100,7 @@ CREATE TABLE `usulan` (
   `id_usulan` int(11) NOT NULL,
   `nik` char(4) COLLATE utf8mb4_unicode_ci NOT NULL,
   `periode` char(4) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nilai` int(5) NOT NULL
+  `nilai` decimal(3,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -157,7 +158,7 @@ ALTER TABLE `nilai`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_user` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `usulan`
 --
