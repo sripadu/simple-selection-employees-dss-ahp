@@ -15,7 +15,6 @@ if (!isset($_SESSION["role"])) {
     <link rel="stylesheet" href="assets/css/sweetalert.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/js/sweetalert.min.js"></script>
-    <script src="assets/js/app.js"></script>
 </head>
 <body>
     <div class="container">
@@ -69,5 +68,6 @@ if (!isset($_SESSION["role"])) {
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/bootstrap-datepicker.min.js"></script>
+    <script src="assets/js/app.js"></script>
 </body>
 </html>
