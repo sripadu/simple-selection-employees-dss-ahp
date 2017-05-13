@@ -48,6 +48,7 @@ if (!isset($_SESSION["role"])) {
                                 <li><a href="?page=pegawai&laporan">Pegawai</a></li>
                                 <li><a href="?page=kriteria&laporan">Kriteria</a></li>
                                 <li><a href="?page=penilaian&laporan">Penialain</a></li>
+                                <li><a href="?page=usulan&laporan">Usulan</a></li>
                             </ul>
                         </li>
                     <?php endif; ?>
