@@ -32,21 +32,21 @@ if (!isset($_SESSION["role"])) {
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li <?=activeMenu($_PAGE, "home");?>><a href="?page=home">Home <span class="sr-only">(current)</span></a></li>
-                    <?php if ($_SESSION["role"] == "Operator"): ?>
-                        <li <?=activeMenu($_PAGE, "calon_anggota");?>><a href="?page=calon_anggota">Calon Anggota</a></li>
+                    <?php if ($_SESSION["role"] == "Pegawai"): ?>
+                        <li <?=activeMenu($_PAGE, "pegawai");?>><a href="?page=pegawai">Pegawai</a></li>
                         <li <?=activeMenu($_PAGE, "pengguna");?>><a href="?page=pengguna">Pengguna</a></li>
                     <?php endif; ?>
 
-                    <?php if ($_SESSION["role"] == "Wakil Ketua"): ?>
+                    <?php if ($_SESSION["role"] == "Manajer"): ?>
                         <li <?=activeMenu($_PAGE, "kriteria");?>><a href="?page=kriteria">Kriteria</a></li>
                         <li <?=activeMenu($_PAGE, "penilaian");?>><a href="?page=penilaian">Penilaian</a></li>
                     <?php endif; ?>
 
-                    <?php if ($_SESSION["role"] == "Ketua Umum" OR $_SESSION["role"] == "Wakil Ketua"): ?>
+                    <?php if ($_SESSION["role"] == "Atasan" OR $_SESSION["role"] == "Manajer"): ?>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Laporan <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="?page=calon_anggota&laporan">Calon Anggota</a></li>
+                                <li><a href="?page=pegawai&laporan">Pegawai</a></li>
                                 <li><a href="?page=kriteria&laporan">Kriteria</a></li>
                                 <li><a href="?page=penilaian&laporan">Penialain</a></li>
                             </ul>
